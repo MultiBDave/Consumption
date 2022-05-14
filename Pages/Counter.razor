@@ -1,0 +1,36 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Counter</MudText>
+<MudText Class="mb-4">Current count: @currentCount</MudText>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="IncrementCount">Click me</MudButton>
+
+
+@*@foreach(var x in tomb)
+{
+	<MudListItem Text="@jelenlegiElem" OnClick="@(() => Torol(jelenlegiElem))"></MudListItem>
+}
+*@
+
+@*
+<MudList Clickable="true" Style="max-height: 100px; overflow-y: scroll">
+	<Iterations Items="listaAminVegigMegyunk">
+		<ChildContent Context="jelenlegiElem">
+			<MudListItem Text="@jelenlegiElem" OnClick="@(() => Torol(jelenlegiElem))"></MudListItem>
+		</ChildContent>
+	</Iterations>
+</MudList>
+
+*@
+
+
+@code {
+
+	private int currentCount = 0;
+
+	private void IncrementCount()
+	{
+		currentCount++;
+	}
+}

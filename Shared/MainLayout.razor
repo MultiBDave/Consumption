@@ -1,0 +1,38 @@
+﻿@inherits LayoutComponentBase
+<MudThemeProvider Theme="new MudTheme()" @bind-IsDarkMode="@_isDarkMode" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+	<MudAppBar Elevation="0">
+		<MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+		<MudSpacer />
+		<MudSwitch @bind-Checked="_isDarkMode" Icon="@modeIcon" />
+		<MudIconButton Icon="@Icons.Filled.Login" Color="Color.Inherit" Link="/login" Target="_self" />
+		<MudIconButton Icon="@Icons.Filled.PersonAdd" Color="Color.Inherit" Link="/register" Target="_self" />
+	</MudAppBar>
+	<MudDrawer @bind-Open="_drawerOpen" Elevation="1">
+		<MudDrawerHeader>
+			<MudText Typo="Typo.h6">Consumption_Meter</MudText>
+		</MudDrawerHeader>
+		<NavMenu />
+	</MudDrawer>
+	<MudMainContent>
+		<MudContainer MaxWidth="MaxWidth.Large" Class="my-16 pt-16">
+			@Body
+		</MudContainer>
+	</MudMainContent>
+</MudLayout>
+
+@code {
+	bool _drawerOpen = true;
+	bool _isDarkMode = false;
+	private string modeIcon => _isDarkMode ? Icons.Filled.DarkMode : Icons.Filled.LightMode;
+	
+
+
+	void DrawerToggle()
+	{
+		_drawerOpen = !_drawerOpen;
+	}
+}

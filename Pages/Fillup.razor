@@ -1,0 +1,25 @@
+﻿
+@page "/fillup"
+
+@inject IElementData ElementData
+
+<PageTitle>Index</PageTitle>
+<EditForm Model="@element" OnValidSubmit="OnValidSubmit">
+<MudText Typo="Typo.h3" GutterBottom="true">Hello, Gas Station!</MudText>
+<MudText Class="mb-8">Today we want to connect to the Mysql server</MudText>
+<MudAlert Severity="Severity.Normal">Don't forget to fill up or charge your car<MudLink Href="https://mudblazor.com" Typo="Typo.body2" Color="Color.Inherit"><b>www.mudblazor.com</b></MudLink></MudAlert>
+<MudTextField @bind-Value="element.data1" Label="Standard" Variant="Variant.Text"></MudTextField>
+<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Register</MudButton>
+</EditForm>
+@*data1-> element.data1*@
+
+@code {
+    
+
+    //peldanyositas: element
+
+    public void OnValidSubmit()
+    {
+        //sql inserteled az elementet
+    }
+}
